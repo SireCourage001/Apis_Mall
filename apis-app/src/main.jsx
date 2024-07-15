@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -12,8 +12,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="Apis_Mall">
-    <Router>
+    <BrowserRouter basename="/Apis_Mall">
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
@@ -24,7 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="about-us" element={<AboutUs />} />
         </Route>
       </Routes>
-    </Router>
     </BrowserRouter>
   </React.StrictMode>
 );
