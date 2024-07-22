@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import unsplash from '../utils/unsplash';
 
 
+// Format price in Naira
 const formatPriceInNaira = (price) => {
   return new Intl.NumberFormat('en-NG', {
     style: 'currency',
@@ -11,6 +12,7 @@ const formatPriceInNaira = (price) => {
   }).format(price);
 };
 
+// Array of products with details
 
 const initialProducts = [
   { id: 1, name: 'Honey', price: 10000, description: 'Per litre. Unadulterated honey,straight from the hives.', query: 'honey' },
@@ -28,6 +30,8 @@ const initialProducts = [
   { id: 12, name: 'Bee Polish', price: 5000, description: 'Polish that brightens you shoes.', query: 'bee polish' },
   
 ];
+
+// Set State variables init using hooks
 const Products = () => {
   const [products, setProducts] = useState(initialProducts);
   const [productImages, setProductImages] = useState({});
@@ -38,8 +42,10 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  // Total num of products to display per page
   const productsPerPage = 6;
 
+  // useEffect hook to fetch img from Unsplash API
   useEffect(() => {
     const fetchImages = async () => {
       setIsLoading(true);
@@ -64,19 +70,28 @@ const Products = () => {
     fetchImages();
   }, []);
 
+  // Dependency array ensures effect runs when products change
+
+
+ 
+  // Handle search input changes
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
     setCurrentPage(1);
   };
 
+  // Handle sort order changes
   const handleSort = (event) => {
     setSortOrder(event.target.value);
   };
 
+    // Func to sum a product to the cart
   const addToCart = (product) => {
     setCart([...cart, product]);
   };
 
+
+// Filter and sort products based on search and sort order
   const filteredAndSortedProducts = products
     .filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .sort((a, b) => {
@@ -89,10 +104,13 @@ const Products = () => {
       }
     });
 
+    // Pagination is calculated
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredAndSortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
+
+  // JSX is render based on loading state & product availability
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Your Choice</h1>
@@ -161,7 +179,6 @@ const Products = () => {
           </div>
         </>
       )}
-
       <div className="mt-4">
         <h2 className="text-2xl font-bold">Cart ({cart.length} items)</h2>
         <ul>

@@ -4,7 +4,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import './App.css'
 
+// Functional component App
 function App() {
+  // Render JSX
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -16,4 +18,5 @@ function App() {
   )
 }
 
+// Export the App component as default
 export default App

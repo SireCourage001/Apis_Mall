@@ -45,11 +45,12 @@ function AboutUs() {
 
         <section className="bg-white shadow-md rounded-lg p-6 md:p-8 mt-8">
           <h3 className="text-2xl font-semibold mb-4">Our Product Catalog</h3>
-          <ul className="list-disc text-lg text-gray-700 flex flex-col items-center space-y-2">            <li>Bee wax,</li>
-            <li>Honey</li>
-            <li>Jelly</li>
-            <li>Propolis</li>
-            <li>Venom</li>
+          <ul className="list-disc text-lg text-gray-700 flex flex-col items-center space-y-2">  
+            <li><strong>Bee wax</strong></li>
+            <li><strong>Honey</strong></li>
+            <li><strong>Jelly</strong></li>
+            <li><strong>Propolis</strong></li>
+            <li><strong>Venom</strong></li>
             <li>Beekeeping Equipment: From hive kits to protective gear, we offer a complete selection of beekeeping equipment designed for durability and ease of use.</li>
             <li>Honey Extraction Tools: Explore our range of extractors, filters, and other tools essential for harvesting and processing honey efficiently.</li>
             <li>Educational Materials: Dive deeper into the world of beekeeping with our selection of books, guides, and educational resources for beekeepers at all skill levels.</li>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import unsplash from '../utils/unsplash';
 
+// Array of products
 const products = [
   { name: 'Honey', query: 'honey jar', description: 'Pure, natural honey. The nectar of life' },
   { name: 'Bee pollen', query: 'bee pollen', description: 'Nutrient-rich bee pollen' },
@@ -10,12 +11,14 @@ const products = [
   { name: 'Bee wax', query: 'bees wax', description: 'Natural bee wax' },
 ];
 
+// Home component & State for storing product img, tracking loading status, storing search term & navigation.
 const Home = () => {
   const [productImages, setProductImages] = useState({});
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
+  // Effect hook for fetching img
   useEffect(() => {
     const fetchImages = async () => {
       setLoading(true);
@@ -34,7 +37,7 @@ const Home = () => {
           console.error(`Error fetching image for ${product.name}:`, error);
         }
       }
-      setProductImages(images);
+      setProductImages(images); // Update state with the fetched img
       setLoading(false);
     };
 
@@ -45,6 +48,7 @@ const Home = () => {
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Handle the search input changes
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
@@ -53,6 +57,7 @@ const Home = () => {
     }
   };
 
+  // Render the component
   return (
     <div className="p-4">
       <h1 className="text-3xl font-bold text-center mb-4">Welcome to Apis_Mall!</h1>
@@ -67,6 +72,8 @@ const Home = () => {
       {loading ? (
         <p className="text-center">Loading products...</p>
       ) : (
+
+        // Grid of product cards
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
           {filteredProducts.map((product, index) => (
             <div key={index} className="border rounded-lg overflow-hidden shadow-lg">
@@ -85,6 +92,7 @@ const Home = () => {
           ))}
         </div>
       )}
+      {/* Link to all products*/}
       <Link to="/products" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
         View All Products
       </Link>
