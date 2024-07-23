@@ -16,19 +16,17 @@ Apis_Mall is an e-commerce web application focused on bee products, built with m
 - Product sorting (by name, price)
 - Responsive design
 - Shopping cart
-- Pagination
-- Product details modal
+
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js (version 14 or later)
-- npm or yarn
 
 ### Installation
 
-1. Clone the repository: https
+1. Clone the repository: https://github.com/SireCourage001/Apis_Mall.git
 2. Navigate to the project directory: cd apis-app
 3. Install dependencies: npm install
 4. Create a `.env` file in the root directory and add your Unsplash API key:VITE_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
